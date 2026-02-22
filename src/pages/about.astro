@@ -1,0 +1,360 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const principles = [
+  {
+    title: 'Scientific Rigour',
+    description: 'Every strategy we deploy is built on a foundation of peer-reviewed research, rigorous statistical testing, and reproducible results. We apply the same standards of evidence that define the best academic research.',
+  },
+  {
+    title: 'Engineering Excellence',
+    description: 'Our technology platform is designed, built, and maintained by experienced software engineers who understand the unique demands of low-latency financial systems. Quality is non-negotiable.',
+  },
+  {
+    title: 'Risk Discipline',
+    description: 'We believe that exceptional returns are only meaningful when accompanied by disciplined risk management. Our multi-layered risk framework protects capital while maximising risk-adjusted performance.',
+  },
+  {
+    title: 'Continuous Innovation',
+    description: 'Financial markets evolve constantly, and so do we. Our research pipeline ensures that we are always developing, testing, and refining new approaches to stay ahead of the curve.',
+  },
+];
+
+const timeline = [
+  { year: '2024', title: 'Foundation', description: 'Finicium Capital LTD incorporated in the United Kingdom with a clear mission: to build a world-class quantitative trading platform.' },
+  { year: '2024', title: 'Research Phase', description: 'Assembled a core team of quantitative researchers and engineers to develop our proprietary trading framework and infrastructure.' },
+  { year: '2025', title: 'Platform Launch', description: 'Deployed our first generation of algorithmic trading systems, establishing connectivity to major global exchanges and liquidity venues.' },
+  { year: '2025', title: 'Expansion', description: 'Expanded our strategy set and market coverage, onboarding new asset classes and refining our execution algorithms for optimal performance.' },
+];
+---
+
+<BaseLayout
+  title="About — Finicium Capital"
+  description="Learn about Finicium Capital's mission, values, and team. We are a quantitative trading firm driven by scientific rigour, engineering excellence, and disciplined risk management."
+>
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <span class="eyebrow animate-on-scroll">About Us</span>
+      <h1 class="page-header-title animate-on-scroll">
+        Precision meets <span class="gradient-text">purpose</span>
+      </h1>
+      <p class="page-header-desc animate-on-scroll">
+        We are a quantitative trading firm that combines rigorous scientific methodology with world-class engineering to pursue excellence in global financial markets.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content">
+          <h2 class="animate-on-scroll">Our <span class="gradient-text">Mission</span></h2>
+          <p class="mission-text animate-on-scroll">
+            Finicium Capital exists to advance the art and science of algorithmic trading. We are committed to building intelligent, adaptive systems that navigate the complexity of modern financial markets with precision and integrity.
+          </p>
+          <p class="mission-text animate-on-scroll">
+            Our approach is grounded in the belief that systematic, evidence-based strategies — developed with rigorous scientific methodology and executed with institutional-grade technology — can deliver superior risk-adjusted returns over the long term.
+          </p>
+        </div>
+        <div class="mission-visual animate-on-scroll scale-in">
+          <div class="mission-card">
+            <div class="mission-card-inner">
+              <div class="mission-stat">
+                <span class="mission-stat-value gradient-text">100%</span>
+                <span class="mission-stat-label">Systematic and Rules-Based</span>
+              </div>
+              <div class="mission-stat">
+                <span class="mission-stat-value gradient-text">24/7</span>
+                <span class="mission-stat-label">Monitoring and Risk Oversight</span>
+              </div>
+              <div class="mission-stat">
+                <span class="mission-stat-value gradient-text">Global</span>
+                <span class="mission-stat-label">Multi-Asset Market Coverage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles Section -->
+  <section class="section principles-section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Our Principles"
+        title='The pillars of our <span class="gradient-text">approach</span>'
+        description="Four foundational principles guide everything we do, from research and development to execution and risk management."
+      />
+
+      <div class="grid grid--2 stagger-children">
+        {principles.map((principle) => (
+          <div class="principle-card card animate-on-scroll">
+            <h3>{principle.title}</h3>
+            <p>{principle.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section">
+    <div class="container container--narrow">
+      <SectionHeading
+        eyebrow="Our Journey"
+        title='Building the <span class="gradient-text">future</span>'
+        description="A timeline of key milestones in our development as a firm."
+      />
+
+      <div class="timeline">
+        {timeline.map((item, index) => (
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-marker">
+              <span class="timeline-year">{item.year}</span>
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Regulatory Section -->
+  <section class="section reg-section">
+    <div class="container container--narrow text-center">
+      <SectionHeading
+        eyebrow="Governance"
+        title='Committed to <span class="gradient-text">compliance</span>'
+        description="We maintain the highest standards of corporate governance and regulatory compliance."
+      />
+
+      <div class="reg-cards stagger-children">
+        <div class="reg-card card animate-on-scroll">
+          <h4>Registered Company</h4>
+          <p>Finicium Capital LTD is incorporated and registered in England and Wales, operating under the laws and regulations of the United Kingdom.</p>
+        </div>
+        <div class="reg-card card animate-on-scroll">
+          <h4>Data Protection</h4>
+          <p>We take data privacy seriously and comply with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+        </div>
+        <div class="reg-card card animate-on-scroll">
+          <h4>Ethical Standards</h4>
+          <p>Our operations are guided by a strict code of conduct that emphasises integrity, transparency, and accountability in all our dealings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-20)) 0 var(--space-16);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+  }
+
+  .page-header-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--color-bg-primary), transparent);
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-header-title {
+    margin-bottom: var(--space-6);
+    max-width: 700px;
+  }
+
+  .page-header-desc {
+    font-size: var(--text-lg);
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* Mission */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .mission-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .mission-text {
+    font-size: var(--text-base);
+    line-height: 1.8;
+  }
+
+  .mission-card {
+    background: var(--color-bg-secondary);
+    border: var(--border-card);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+  }
+
+  .mission-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .mission-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .mission-stat-value {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 800;
+  }
+
+  .mission-stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  /* Principles */
+  .principles-section {
+    background: var(--color-bg-secondary);
+  }
+
+  .principle-card h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .principle-card p {
+    line-height: 1.8;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) 0;
+    border-bottom: var(--border-subtle);
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .timeline-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent-cyan);
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+  }
+
+  .timeline-content h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-content p {
+    line-height: 1.8;
+  }
+
+  /* Regulatory */
+  .reg-section {
+    background: var(--color-bg-primary);
+  }
+
+  .reg-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .reg-card {
+    text-align: left;
+  }
+
+  .reg-card h4 {
+    margin-bottom: var(--space-3);
+    color: var(--color-accent-blue-light);
+  }
+
+  .reg-card p {
+    font-size: var(--text-sm);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .mission-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .timeline-item {
+      grid-template-columns: 80px 1fr;
+      gap: var(--space-4);
+    }
+
+    .reg-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,355 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const capabilities = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+    title: 'Signal Generation',
+    description: 'Our quantitative models analyse vast datasets to identify statistically significant trading signals across multiple timeframes and asset classes.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
+    title: 'Execution Engine',
+    description: 'Purpose-built execution algorithms minimise market impact and slippage, routing orders intelligently across multiple venues for optimal fill quality.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: 'Risk Framework',
+    description: 'Real-time position monitoring, portfolio-level risk limits, and automated circuit breakers ensure capital protection across all market conditions.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
+    title: 'Data Pipeline',
+    description: 'High-throughput data ingestion and normalisation systems process market data, alternative data, and proprietary datasets with minimal latency.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
+    title: 'Backtesting Suite',
+    description: 'Comprehensive simulation environment enables thorough strategy validation using historical data with realistic assumptions about transaction costs and market microstructure.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>',
+    title: 'Performance Analytics',
+    description: 'Detailed attribution analysis, real-time performance dashboards, and automated reporting enable continuous strategy evaluation and improvement.',
+  },
+];
+
+const techStack = [
+  { category: 'Languages', items: ['C++', 'Python', 'Rust'] },
+  { category: 'Infrastructure', items: ['Co-located Servers', 'FPGA Acceleration', 'Kernel Bypass Networking'] },
+  { category: 'Data', items: ['Time-Series Databases', 'Real-Time Stream Processing', 'Distributed Storage'] },
+  { category: 'Research', items: ['Machine Learning', 'Statistical Modelling', 'Monte Carlo Simulation'] },
+];
+---
+
+<BaseLayout
+  title="Technology — Finicium Capital"
+  description="Explore the technology behind Finicium Capital's algorithmic trading platform. Purpose-built infrastructure for ultra-low latency execution, quantitative research, and real-time risk management."
+>
+  <Header slot="header" />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container">
+      <span class="eyebrow animate-on-scroll">Technology</span>
+      <h1 class="page-header-title animate-on-scroll">
+        Infrastructure built for <span class="gradient-text">speed and scale</span>
+      </h1>
+      <p class="page-header-desc animate-on-scroll">
+        Every component of our trading platform is engineered in-house, optimised for performance, and designed to operate reliably under the most demanding conditions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Architecture Overview -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Architecture"
+        title='End-to-end <span class="gradient-text">trading platform</span>'
+        description="Our platform encompasses the full trading lifecycle, from data ingestion and signal generation through execution and post-trade analytics."
+      />
+
+      <div class="architecture-visual animate-on-scroll">
+        <div class="arch-flow">
+          <div class="arch-node">
+            <div class="arch-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="arch-node-label">Market Data</span>
+          </div>
+          <div class="arch-connector"></div>
+          <div class="arch-node">
+            <div class="arch-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <span class="arch-node-label">Signal Engine</span>
+          </div>
+          <div class="arch-connector"></div>
+          <div class="arch-node arch-node--highlight">
+            <div class="arch-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span class="arch-node-label">Execution</span>
+          </div>
+          <div class="arch-connector"></div>
+          <div class="arch-node">
+            <div class="arch-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="arch-node-label">Risk Control</span>
+          </div>
+          <div class="arch-connector"></div>
+          <div class="arch-node">
+            <div class="arch-node-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <span class="arch-node-label">Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Section -->
+  <section class="section capabilities-section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Capabilities"
+        title='Core platform <span class="gradient-text">components</span>'
+        description="Each module of our platform is designed as an independent, high-performance component that integrates seamlessly into our trading infrastructure."
+      />
+
+      <div class="grid grid--3 stagger-children">
+        {capabilities.map((cap) => (
+          <FeatureCard icon={cap.icon} title={cap.title} description={cap.description} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Technology Stack"
+        title='Tools of the <span class="gradient-text">trade</span>'
+        description="We leverage best-in-class technologies and proprietary solutions to build systems that operate at the frontier of performance."
+      />
+
+      <div class="tech-stack-grid stagger-children">
+        {techStack.map((stack) => (
+          <div class="tech-stack-card card animate-on-scroll">
+            <h4 class="tech-stack-category">{stack.category}</h4>
+            <ul class="tech-stack-items">
+              {stack.items.map((item) => (
+                <li class="tech-stack-item">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .page-header {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-20)) 0 var(--space-16);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .page-header-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+  }
+
+  .page-header-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--color-bg-primary), transparent);
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-header-title {
+    margin-bottom: var(--space-6);
+    max-width: 700px;
+  }
+
+  .page-header-desc {
+    font-size: var(--text-lg);
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* Architecture Visual */
+  .architecture-visual {
+    padding: var(--space-8) 0;
+  }
+
+  .arch-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .arch-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--space-4);
+    min-width: 120px;
+  }
+
+  .arch-node-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+    background: var(--color-bg-card);
+    border: var(--border-card);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+  }
+
+  .arch-node-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .arch-node:hover .arch-node-icon {
+    border-color: rgba(37, 99, 235, 0.3);
+    color: var(--color-accent-blue-light);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .arch-node--highlight .arch-node-icon {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.3);
+    color: var(--color-accent-blue-light);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .arch-node-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .arch-connector {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.3), rgba(37, 99, 235, 0.1));
+    position: relative;
+  }
+
+  .arch-connector::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid rgba(37, 99, 235, 0.4);
+    border-top: 2px solid rgba(37, 99, 235, 0.4);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  /* Capabilities */
+  .capabilities-section {
+    background: var(--color-bg-secondary);
+  }
+
+  /* Tech Stack */
+  .tech-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .tech-stack-category {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-cyan);
+    margin-bottom: var(--space-4);
+  }
+
+  .tech-stack-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .tech-stack-item {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .tech-stack-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent-blue);
+  }
+
+  @media (max-width: 1024px) {
+    .tech-stack-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .arch-connector {
+      display: none;
+    }
+
+    .arch-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+    }
+
+    .tech-stack-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

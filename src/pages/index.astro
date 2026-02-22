@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const features = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+    title: 'Ultra-Low Latency',
+    description: 'Our execution infrastructure operates at sub-millisecond speeds, ensuring optimal order placement across all market conditions.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
+    title: 'Quantitative Research',
+    description: 'A dedicated team of quantitative researchers develops and refines systematic strategies using advanced statistical models.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: 'Risk Management',
+    description: 'Comprehensive, multi-layered risk controls monitor every position in real time, safeguarding capital across diverse market environments.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+    title: 'Global Market Access',
+    description: 'We maintain direct connectivity to major exchanges and liquidity venues worldwide, providing seamless access to global opportunities.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: 'Proprietary Technology',
+    description: 'Every component of our trading platform is built in-house, giving us full control over performance, reliability, and innovation.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+    title: 'Continuous Optimisation',
+    description: 'Our strategies evolve through continuous backtesting, simulation, and real-time performance analysis across changing market regimes.',
+  },
+];
+
+const techHighlights = [
+  { label: 'Execution Speed', value: '<1ms' },
+  { label: 'Markets Covered', value: '40+' },
+  { label: 'Uptime SLA', value: '99.99%' },
+  { label: 'Models in Production', value: '200+' },
+];
+---
+
+<BaseLayout
+  title="Finicium Capital — Algorithmic Trading"
+  description="Finicium Capital is a quantitative trading firm specialising in algorithmic strategies across global financial markets. Precision engineering meets financial expertise."
+>
+  <Header slot="header" />
+
+  <Hero
+    title='Precision-engineered <span class="gradient-text">algorithmic trading</span>'
+    subtitle="We combine deep quantitative research with cutting-edge technology to execute systematic trading strategies across global financial markets."
+    primaryCta={{ label: 'Explore Our Technology', href: '/technology/' }}
+    secondaryCta={{ label: 'About Us', href: '/about/' }}
+  />
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <SectionHeading
+        eyebrow="What We Do"
+        title='Systematic edge through <span class="gradient-text">technology</span>'
+        description="Our platform integrates proprietary research, advanced execution systems, and robust risk management to capture opportunities across global markets."
+      />
+
+      <div class="grid grid--3 stagger-children">
+        {features.map((feature) => (
+          <FeatureCard
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Highlights Section -->
+  <section class="section tech-section">
+    <div class="tech-glow"></div>
+    <div class="container">
+      <SectionHeading
+        eyebrow="Infrastructure"
+        title='Built for <span class="gradient-text">performance</span>'
+        description="Our technology infrastructure is purpose-built for high-performance trading, with every component optimised for speed, reliability, and scalability."
+      />
+
+      <div class="tech-metrics animate-on-scroll">
+        {techHighlights.map((item) => (
+          <div class="tech-metric">
+            <span class="tech-metric-value">{item.value}</span>
+            <span class="tech-metric-label">{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="tech-cta animate-on-scroll text-center">
+        <a href="/technology/" class="btn btn--primary btn--large">
+          Learn More About Our Platform
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview Section -->
+  <section class="section" id="about-preview">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="eyebrow animate-on-scroll">About Finicium Capital</span>
+          <h2 class="animate-on-scroll">A disciplined approach to <span class="gradient-text">quantitative finance</span></h2>
+          <p class="about-text animate-on-scroll">
+            Founded by a team of engineers, mathematicians, and financial professionals, Finicium Capital brings together deep academic research and practical market expertise. We believe that rigorous scientific methodology, combined with world-class engineering, is the foundation of sustainable competitive advantage in financial markets.
+          </p>
+          <p class="about-text animate-on-scroll">
+            Our strategies are grounded in statistical evidence, continuously validated through extensive backtesting, and executed with institutional-grade infrastructure. We maintain the highest standards of risk management and regulatory compliance.
+          </p>
+          <a href="/about/" class="btn btn--secondary animate-on-scroll">
+            Learn More About Us
+          </a>
+        </div>
+        <div class="about-visual animate-on-scroll scale-in">
+          <div class="about-visual-card">
+            <div class="about-visual-pattern"></div>
+            <div class="about-visual-content">
+              <div class="about-visual-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <span class="about-visual-label">Real-Time Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="cta-glow"></div>
+    <div class="container text-center">
+      <h2 class="animate-on-scroll">Interested in <span class="gradient-text">working with us</span>?</h2>
+      <p class="cta-desc animate-on-scroll">
+        Whether you are an institutional partner, a potential team member, or simply curious about our approach, we would be pleased to hear from you.
+      </p>
+      <div class="cta-actions animate-on-scroll">
+        <a href="/contact/" class="btn btn--primary btn--large">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* Technology Section */
+  .tech-section {
+    position: relative;
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+  }
+
+  .tech-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    background: var(--gradient-glow);
+    pointer-events: none;
+  }
+
+  .tech-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  .tech-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-8) var(--space-4);
+    background: var(--color-bg-card);
+    border: var(--border-card);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(16px);
+    transition: all var(--transition-base);
+  }
+
+  .tech-metric:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .tech-metric-value {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tech-metric-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  .tech-cta {
+    margin-top: var(--space-4);
+  }
+
+  /* About Section */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .about-text {
+    font-size: var(--text-base);
+    line-height: 1.8;
+  }
+
+  .about-content .btn {
+    align-self: flex-start;
+    margin-top: var(--space-4);
+  }
+
+  .about-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-visual-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+    border: var(--border-card);
+  }
+
+  .about-visual-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .about-visual-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+  }
+
+  .about-visual-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--color-accent-blue-light);
+  }
+
+  .about-visual-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-24) 0;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-desc {
+    font-size: var(--text-lg);
+    max-width: 550px;
+    margin: var(--space-4) auto var(--space-8);
+    text-align: center;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 1024px) {
+    .tech-metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .tech-metrics {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

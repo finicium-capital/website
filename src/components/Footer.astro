@@ -1,0 +1,183 @@
+---
+const currentYear = new Date().getFullYear();
+
+const productLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/technology/', label: 'Technology' },
+  { href: '/contact/', label: 'Contact' },
+];
+
+const legalLinks = [
+  { href: '/privacy/', label: 'Privacy Policy' },
+  { href: '/terms/', label: 'Terms of Service' },
+  { href: '/cookies/', label: 'Cookie Policy' },
+  { href: '/acceptable-use/', label: 'Acceptable Use' },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Finicium Capital Home">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="url(#footer-logo-grad)" />
+            <path d="M8 10h16v2.5H11v3h10v2.5H11v6H8V10z" fill="white" />
+            <defs>
+              <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="32" y2="32">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#06b6d4" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>Finicium Capital</span>
+        </a>
+        <p class="footer-tagline">
+          Quantitative trading strategies powered by advanced algorithms and rigorous risk management across global financial markets.
+        </p>
+      </div>
+
+      <!-- Navigation Column -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          {productLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal Column -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Legal</h4>
+        <ul class="footer-links">
+          {legalLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {currentYear} Finicium Capital LTD. All rights reserved.
+      </p>
+      <p class="footer-reg">
+        Registered in England and Wales.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    background: var(--color-bg-secondary);
+    border-top: var(--border-subtle);
+    padding: var(--space-16) 0 var(--space-8);
+    overflow: hidden;
+  }
+
+  .footer-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-logo:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-tagline {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 320px;
+  }
+
+  .footer-heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-links a {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-8);
+    border-top: var(--border-subtle);
+  }
+
+  .footer-copyright {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .footer-reg {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-2);
+      text-align: center;
+    }
+  }
+</style>

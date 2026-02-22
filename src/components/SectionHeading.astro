@@ -1,0 +1,43 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  centered?: boolean;
+}
+
+const { eyebrow, title, description, centered = true } = Astro.props;
+---
+
+<div class:list={['section-heading', { 'text-center': centered }]}>
+  {eyebrow && <span class="eyebrow animate-on-scroll">{eyebrow}</span>}
+  <h2 class="section-heading-title animate-on-scroll" set:html={title} />
+  {description && <p class="section-heading-desc animate-on-scroll">{description}</p>}
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-heading.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-heading-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-heading-desc {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+  }
+
+  .text-center .section-heading-desc {
+    text-align: center;
+  }
+</style>
